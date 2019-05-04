@@ -1,0 +1,9 @@
+---
+- hosts: server
+  tasks:
+    - name: Invoking uptime module
+      action: uptime
+#      become: yes
+      register: uptime_output
+
+    - debug: var=uptime_output

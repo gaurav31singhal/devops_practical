@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  vars:
+    web_dependencies:
+        - python
+        - python-setuptools
+        - python3
+        - python4
+        - python5
+		
+	sql_dependencies:
+        - python
+        - sql_dependencies
+        - sql_dependencies2
+        - sql_dependencies3
+
+  tasks:
+   - name: Install below dependencies.
+     debug: msg='{{ item }}'
+	 with_items: '{{ sql_dependencies | union(web_dependencies) }}'

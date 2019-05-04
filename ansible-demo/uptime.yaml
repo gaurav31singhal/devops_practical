@@ -1,0 +1,9 @@
+
+- hosts: server
+
+  tasks:
+   - name: invoking uptime module
+     action: chk_uptime 
+     register: uptime_output
+
+   - debug: var={{ uptime_output }}

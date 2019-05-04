@@ -1,0 +1,8 @@
+---
+- hosts: server
+  tasks:
+    - name: check root user
+      action: shellcheck username=root
+      register: output_root
+
+    - debug: var=output_root
